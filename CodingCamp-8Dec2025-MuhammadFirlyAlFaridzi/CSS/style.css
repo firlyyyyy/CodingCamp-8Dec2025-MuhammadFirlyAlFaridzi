@@ -1,35 +1,96 @@
+/* === Global Style === */
+* {
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f1f1f1;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e8ecf3);
     margin: 0;
-    padding: 40px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;              /* Pastikan seluruh viewport diisi */
+    min-height: 100vh;
 }
 
+/* === Container === */
 .container {
-    background: white;
-    padding: 25px;
-    max-width: 500px;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    padding: 30px 25px;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+/* === Title === */
 h1 {
     text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
 }
 
+/* === Form === */
 form {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
-form input, form button {
-    padding: 10px;
-    font-size: 14px;
+form input[type="text"],
+form input[type="date"] {
+    flex: 1 1 45%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
 }
 
-#todo-list {
+form input:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.2);
+}
+
+form button {
+    flex: 1 1 100%;
+    padding: 12px;
+    background-color: #0077ff;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #005fcc;
+}
+
+/* === Filter === */
+.filter {
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter input[type="date"] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* === Todo List === */
+#todo-list {
+    margin-top: 25px;
     padding: 0;
     list-style: none;
 }
@@ -37,17 +98,181 @@ form input, form button {
 .todo-item {
     display: flex;
     justify-content: space-between;
-    background: #eee;
-    padding: 12px;
+    align-items: center;
+    background: #f5f7fb;
+    padding: 12px 15px;
+    border-radius: 8px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border: 1px solid #e2e6ec;
+}
+
+.todo-item:hover {
+    background: #eaf1ff;
 }
 
 .delete-btn {
-    background: red;
+    background: #ff5c5c;
     border: none;
     color: white;
     padding: 6px 10px;
+    border-radius: 6px;
     cursor: pointer;
-    border-radius: 4px;
+    font-size: 13px;
+}
+
+.delete-btn:hover {
+    background: #e23c3c;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    form input[type="text"],
+    form input[type="date"],
+    form button {
+    flex: 1 1 100%;
+    }
+
+    .filter {
+    flex-direction: column;
+    align-items: flex-start;
+    }
+}
+/* === Global Style === */
+* {
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e8ecf3);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  height: 100vh;              /* Pastikan seluruh viewport diisi */
+    min-height: 100vh;
+}
+
+/* === Container === */
+.container {
+    background: #ffffff;
+    padding: 30px 25px;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* === Title === */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+/* === Form === */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+form input[type="text"],
+form input[type="date"] {
+    flex: 1 1 45%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+form input:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.2);
+}
+
+form button {
+    flex: 1 1 100%;
+    padding: 12px;
+    background-color: #0077ff;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #005fcc;
+}
+
+/* === Filter === */
+.filter {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter input[type="date"] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* === Todo List === */
+#todo-list {
+    margin-top: 25px;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f7fb;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #e2e6ec;
+}
+
+.todo-item:hover {
+    background: #eaf1ff;
+}
+
+.delete-btn {
+    background: #ff5c5c;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.delete-btn:hover {
+    background: #e23c3c;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    form input[type="text"],
+    form input[type="date"],
+    form button {
+    flex: 1 1 100%;
+    }
+
+    .filter {
+    flex-direction: column;
+    align-items: flex-start;
+    }
 }
